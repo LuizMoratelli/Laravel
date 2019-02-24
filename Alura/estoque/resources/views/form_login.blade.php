@@ -3,6 +3,7 @@
 <div class="container">
     <form action="/loginNovo" method="POST">
         <!--Token do Laravel para permitir envio de POSTS-->
+        
         <input type="hidden" value="{{csrf_token()}}" name="_token">
         <div class="form-group">
             <label for="email">E-mail</label>
