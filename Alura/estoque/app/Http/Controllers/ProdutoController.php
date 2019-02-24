@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Request;
+use Validator;
 use App\Produto;
+use App\Http\Requests\ProdutoRequest;
 
 class ProdutoController extends Controller {
     public function lista() {
@@ -33,11 +35,28 @@ class ProdutoController extends Controller {
         return view('formulario');
     }
 
-    public function adiciona() {
+    //ProdutoRequest $request vai substituir o Request e irá validar
+    public function adiciona(ProdutoRequest $request) {
+        //Validação campo à campo
+        // $validator = Validator::make(
+        //     ['nome' => Request::input('nome')],
+        //     ['nome' => 'required|min:3']
+        // );
+
+        // if ($validator->fails()) {
+        //     dd($validator->messages());
+        //     return redirect('/produtos/novo');
+        // }
+        
+
+
         // $params = Request::all();
         // $produto = new Produto($params);
         //outra maneira de criar é assim (cria, constroi e salva no banco)
-        Produto::create(Request::all());
+        //Método estático ::
+        //Produto::Create(Request::all());
+        //Método com classe ProdutoRequest
+        Produto::create($request->all());
         //pegar informações do formulario
         // $produto->nome = Request::input('nome');
         // $produto->valor = Request::input('valor');

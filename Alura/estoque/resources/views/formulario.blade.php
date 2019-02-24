@@ -1,6 +1,15 @@
 @extends('principal')
 @section('conteudo')
 <div class="container">
+    @if ($errors->all())
+    <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+        </ul>
+    </div>
+    @endif
     <form action="/produtos/adiciona" method="POST">
         <!--Token do Laravel para permitir envio de POSTS-->
         <input type="hidden" value="{{csrf_token()}}" name="_token">
