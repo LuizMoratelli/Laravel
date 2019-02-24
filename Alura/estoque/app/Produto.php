@@ -13,5 +13,10 @@ class Produto extends Model
     public $timestamps = false;
 
     //oque pode ser preenchido pelo array?
-    protected $fillable = array('nome', 'descricao', 'quantidade', 'valor', 'tamanho');
+    protected $fillable = array('nome', 'descricao', 'quantidade', 'valor', 'tamanho', 'categoria_id');
+
+    public function categoria() {
+        //Pertence á
+        return $this->belongsTo('App\Categoria');
+    }
 }

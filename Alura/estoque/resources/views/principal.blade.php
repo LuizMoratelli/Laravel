@@ -18,8 +18,15 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
+                @if (Auth::guest())
+                    <li><a href="/loginNovo">Logar</a></li>
+                    <li><a href="/register">Registrar</a></li>
+                @else
                     <li><a href="/produtos">Listagem</a></li>
                     <li><a href="/produtos/novo">Novo</a></li>
+                    <li>{{Auth::user()->name}}</li>
+                    <li><a href="/register">Deslogar</a></li>
+                @endif
                 </ul>
             </div>
         </nav>

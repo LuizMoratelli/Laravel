@@ -17,6 +17,7 @@
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Tamanho</th>
+            <th>Categoria</th>
             <th>Detalhes</th>
             <th>Excluir</th>
         </tr>
@@ -28,6 +29,7 @@
             <!--caso vazio ou nulo texto-->
             <td>{{$p->quantidade}}</td>
             <td>{{$p->tamanho}}</td>
+            <td>{{$p->categoria->nome}}</td>
             <td>
                 <a href="/produtos/mostra/{{$p->id}}">
                     <i class="fas fa-search"></i>

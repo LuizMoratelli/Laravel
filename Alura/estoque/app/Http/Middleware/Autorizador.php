@@ -16,8 +16,8 @@ class Autorizador
     public function handle($request, Closure $next)
     {
         if (!$request->is('loginNovo') && \Auth::guest()) {
-            dd(\Auth::user());
-            //return redirect('/loginNovo');
+            //dd(\Auth::user());
+            return redirect('/loginNovo');
         }
         return $next($request);
     }

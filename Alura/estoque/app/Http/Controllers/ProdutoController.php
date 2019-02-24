@@ -4,9 +4,15 @@ use Illuminate\Support\Facades\DB;
 use Request;
 use Validator;
 use App\Produto;
+use App\Categoria;
 use App\Http\Requests\ProdutoRequest;
 
 class ProdutoController extends Controller {
+    public function __construct() {
+        $this->middleware('autorizador', ['only' => ['adiciona', 'remove']]);
+    }
+
+
     public function lista() {
         //$produtos = DB::select('select * from produtos');
         //Eloquent
@@ -32,7 +38,7 @@ class ProdutoController extends Controller {
     }
 
     public function novo() {
-        return view('formulario');
+        return view('formulario')->with('categorias', Categoria::all());
     }
 
     //ProdutoRequest $request vai substituir o Request e irá validar
