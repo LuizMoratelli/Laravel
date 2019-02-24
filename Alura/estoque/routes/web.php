@@ -11,6 +11,7 @@
 |
 */
 //estoque wVJn8rnbpuJsZjkP
+//https://gist.github.com/Turini/4949f23350ae2297c933
 //https://medium.com/modulr/create-scaffold-with-laravel-5-7-f5ab353dff1c
 //php artisan make:auth
 Route::get('/', function () {
@@ -22,6 +23,7 @@ Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra');
 Route::get('/produtos/novo', 'ProdutoController@novo');
 Route::post('/produtos/adiciona', 'ProdutoController@adiciona');
 Route::get('/produtos/json', 'ProdutoController@listaJson');
+Route::get('/produtos/remove/{id}', 'ProdutoController@remove');
 
 Auth::routes();
 

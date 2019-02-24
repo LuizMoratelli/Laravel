@@ -5,7 +5,7 @@
 <div class="container">
     <h1>Listagem de Produtos</h1>
     @if(old('nome'))
-        <span class="alert alert-success">
+        <span class="alert alert-success mt-3 mb-3">
             <!--old('nome') pega os parametros da requisição anterior-->
             Produto {{old('nome')}} adicionado com sucesso!
         </span>
@@ -16,7 +16,9 @@
             <th>Valor</th>
             <th>Descrição</th>
             <th>Quantidade</th>
-            <th>Imagens</th>
+            <th>Tamanho</th>
+            <th>Detalhes</th>
+            <th>Excluir</th>
         </tr>
         @foreach ($produtos as $p)
         <tr class="{{ $p->quantidade <= 1 ? 'bg-warning' : '' }}">
@@ -25,9 +27,15 @@
             <td>{{$p->descricao}}</td>
             <!--caso vazio ou nulo texto-->
             <td>{{$p->quantidade}}</td>
+            <td>{{$p->tamanho}}</td>
             <td>
                 <a href="/produtos/mostra/{{$p->id}}">
                     <i class="fas fa-search"></i>
+                </a>
+            </td>
+            <td>
+                <a href="/produtos/remove/{{$p->id}}">
+                    <i class="fas fa-trash-alt"></i>
                 </a>
             </td>
         </tr>
